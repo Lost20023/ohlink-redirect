@@ -5,10 +5,23 @@
 <script>
 // Try to open the app after a short delay
 window.onload = function() {
-window.location = "ohlink://"; // Replace with your app's custom scheme
-setTimeout(function() {
-document.getElementById('fallback').style.display = 'block';
-}, 1500);
+  // Get the query parameters from the URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = urlParams.get('token');
+  
+  // Build the deep link URL
+  let deepLink = "ohlink://setfirstpassword";
+  if (token) {
+    deepLink += "?token=" + encodeURIComponent(token);
+  }
+  
+  // Try to open the app with the deep link
+  window.location = deepLink;
+  
+  // Show fallback message after delay
+  setTimeout(function() {
+    document.getElementById('fallback').style.display = 'block';
+  }, 1500);
 };
 </script>
 </head>
