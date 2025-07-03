@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Open with Ohlink App</title>
+<script>
+// Try to open the app after a short delay
+window.onload = function() {
+window.location = "ohlink://"; // Replace with your app's custom scheme
+setTimeout(function() {
+document.getElementById('fallback').style.display = 'block';
+}, 1500);
+};
+</script>
+</head>
+<body>
+<div id="fallback" style="display:none;">
+please open with the ohlink app
+</div>
+</body>
+</html>
